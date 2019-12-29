@@ -1,0 +1,258 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+[class*="col-"] {
+    float: left;
+}
+
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+.height {
+    height: 100%;
+}
+
+.red {
+    background-color: red;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.aqua {
+    background-color: aqua;
+}
+
+.brown {
+    background-color: brown;
+}
+
+.coral {
+    background-color: coral;
+}
+
+.darkgoldenrod {
+    background-color: darkgoldenrod;
+}
+
+.cornflowerblue {
+    background-color: cornflowerblue;
+}
+
+.cadetblue {
+    background-color: cadetblue;
+}
+
+.teal {
+    background-color: teal;
+}
+
+.tan {
+    background-color: tan;
+}
+
+.gold {
+    background-color: gold;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.box {
+    width: 900px;
+    height: 500px;
+    background-color: #344955;
+    color: #ffffff;
+    -webkit-box-shadow: 0 35px 20px #777;
+    -moz-box-shadow: 0 35px 20px #777;
+    box-shadow: 0 35px 20px #777;
+}
+
+.description {
+    background-color: #f0aa33;
+    padding: 20px;
+    height: 100%;
+}
+
+.form {
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+}
+
+    .form h3 {
+        text-align: center;
+        padding: 10px 0 25px 0;
+    }
+
+.logo {
+    display: flex;
+    justify-content: center;
+    padding: 5px 0 35px 0;
+    font-size: 30px;
+}
+
+.userName {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+}
+
+.userPassword {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+}
+
+.userFirstName {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+}
+
+
+.userSurname {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+}
+
+.loginButton {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+}
+
+
+.validation-summary-errors {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+    text-decoration: none;
+   padding:10px;
+    font-size: 12px;
+}
+
+    .validation-summary-errors ul {
+        /*list-style-image:url(../icon/error.png) ;
+  
+    list-style-position:inside;*/
+        list-style: none;
+    }
+    .validation-summary-errors ul li{
+       margin-top:5px;
+    }
+
+.registerButton {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+}
+
+input {
+    width: 210px;
+    padding: 10px;
+    outline: none;
+    border: 1px;
+}
+
+.loginButton input {
+    padding: 10px 0 10px 0;
+    width: 210px;
+    outline: none;
+    background-color: #f0aa33;
+    color: #ffffff;
+}
+
+
+
+.registerButton a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.error {
+    border: 1px;
+    border-style: solid;
+    border-color: red;
+}

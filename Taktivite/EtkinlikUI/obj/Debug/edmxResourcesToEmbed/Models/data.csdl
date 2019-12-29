@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="etkinlikModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="etkinlikEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="ActivityList" ReturnType="Collection(etkinlikModel.ActivityList_Result)">
+      <Parameter Name="Latitude" Mode="In" Type="Decimal" />
+      <Parameter Name="Longitude" Mode="In" Type="Decimal" />
+      <Parameter Name="Range" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <EntitySet Name="Activity" EntityType="etkinlikModel.Activity" />
+    <FunctionImport Name="acList" ReturnType="Collection(etkinlikModel.acList_Result)">
+      <Parameter Name="Latitude" Mode="In" Type="Decimal" />
+      <Parameter Name="Longitude" Mode="In" Type="Decimal" />
+      <Parameter Name="Range" Mode="In" Type="Decimal" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="ActivityList_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="Int32" Name="StateID" Nullable="false" />
+    <Property Type="Int32" Name="ParticipantID" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Latitude" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Longitude" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Contents" Nullable="true" MaxLength="3000" />
+  </ComplexType>
+  <EntityType Name="Activity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="StateID" Type="Int32" Nullable="false" />
+    <Property Name="ParticipantID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contents" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="acList_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="Int32" Name="StateID" Nullable="false" />
+    <Property Type="Int32" Name="ParticipantID" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Latitude" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Longitude" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Contents" Nullable="true" MaxLength="3000" />
+  </ComplexType>
+</Schema>

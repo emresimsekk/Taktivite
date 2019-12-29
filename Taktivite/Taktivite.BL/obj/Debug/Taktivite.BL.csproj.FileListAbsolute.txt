@@ -1,0 +1,17 @@
+E:\Taktivite\Taktivite.BL\bin\Debug\Taktivite.BL.dll.config
+E:\Taktivite\Taktivite.BL\bin\Debug\Taktivite.BL.dll
+E:\Taktivite\Taktivite.BL\bin\Debug\Taktivite.BL.pdb
+E:\Taktivite\Taktivite.BL\bin\Debug\EntityFramework.dll
+E:\Taktivite\Taktivite.BL\bin\Debug\EntityFramework.SqlServer.dll
+E:\Taktivite\Taktivite.BL\bin\Debug\Taktivite.DAL.dll
+E:\Taktivite\Taktivite.BL\bin\Debug\Taktivite.Entity.dll
+E:\Taktivite\Taktivite.BL\bin\Debug\Taktivite.DAL.pdb
+E:\Taktivite\Taktivite.BL\bin\Debug\Taktivite.DAL.dll.config
+E:\Taktivite\Taktivite.BL\bin\Debug\Taktivite.Entity.pdb
+E:\Taktivite\Taktivite.BL\bin\Debug\Taktivite.Entity.dll.config
+E:\Taktivite\Taktivite.BL\bin\Debug\EntityFramework.xml
+E:\Taktivite\Taktivite.BL\bin\Debug\EntityFramework.SqlServer.xml
+E:\Taktivite\Taktivite.BL\obj\Debug\Taktivite.BL.csprojAssemblyReference.cache
+E:\Taktivite\Taktivite.BL\obj\Debug\Taktivite.BL.csproj.CopyComplete
+E:\Taktivite\Taktivite.BL\obj\Debug\Taktivite.BL.dll
+E:\Taktivite\Taktivite.BL\obj\Debug\Taktivite.BL.pdb

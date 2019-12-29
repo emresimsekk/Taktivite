@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Taktivite.Entity.User>
+
+@{
+    ViewBag.Title = "Profilim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Default.css" rel="stylesheet" />
+<p class="ustMenu">
+    <img src="https://img.icons8.com/ios/50/000000/home.png" width="17" height="17">  &nbsp; Profilim
+</p>
+
+@foreach (var item in Model)
+{
+    <br />
+    <div class="ust">
+        <br />
+        <hr class="hr" />
+        <br />
+        <div class="profilFoto">Profil Fotoğrafı :</div> <div class="foto">  <img src="~/icon/@Html.DisplayFor(modelItem => item.UserImagesName)" width="150" height="150" /></div>
+        <br /> <br /> <br />
+        <br />
+        <br />
+        <br />   <br />
+        <br /> <br /> <br /> <br />
+        <hr class="hr" />
+        <br />
+        <div class="info">Kişisel Bilgiler :</div>
+
+        <div class="infoText">
+            <p class="title">Adınız :</p>
+            @Html.DisplayFor(modelItem => item.Name) <br /> <br />
+            <p class="title">Soyadınız :</p>
+            @Html.DisplayFor(modelItem => item.Surname) <br /> <br />
+            <p class="title">Kullanıcı Adınız :</p>
+            @Html.DisplayFor(modelItem => item.UserName)
+
+        </div>
+    </div>
+
+
+
+
+
+}
+

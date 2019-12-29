@@ -1,0 +1,54 @@
+﻿@using Taktivite.Entity.ValueObject
+@model Taktivite.Entity.ValueObject.ActivityViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p class="ustMenu">
+    <img src="https://img.icons8.com/ios/50/000000/home.png" width="17" height="17">  &nbsp; Etkinlik Ekle
+</p>
+<link href="~/Content/Default.css" rel="stylesheet" />
+<br />
+<script>
+    window.onload = function () {
+
+
+        navigator.geolocation.getCurrentPosition(callback);
+    };
+    function callback(position) {
+        document.getElementById('Latitude').value = position.coords.latitude;
+        document.getElementById('Longitude').value = position.coords.longitude;
+    }
+
+
+</script>
+
+
+@using (Html.BeginForm())
+{
+    <div class="addEtkinlik">
+        <br />
+        @Html.DropDownListFor(model => model.CategoryID, ViewData["categories"] as SelectList, "Seçiniz", "Value")
+        <br /><br />
+        @Html.DropDownListFor(model => model.StateID, ViewData["states"] as SelectList, "Seçiniz", "Value")
+        <br /><br />
+        @Html.DropDownListFor(model => model.ParticipantID, ViewData["participants"] as SelectList, "Seçiniz", "Value")
+        <br />
+        <input type="text" id="Latitude" name="Latitude" />
+        <br />
+        <input type="text" id="Longitude" name="Longitude" />
+        <input type="text" class="Basliketkinlik" name="Title" id="Title" placeholder="Etkinlik Başlığını Giriniz" />
+
+        <br />
+        <br />
+        <textarea name="Contents" id="Title" class="icerik" cols="65" rows="8" placeholder="Etkinlik Hakında Detaylı Bilgileri Veriniz"></textarea>
+
+        <br /><br />
+        <br />
+
+
+        <input type="submit" class="yayinla" value="Yayınla" />
+    </div>
+
+
+}

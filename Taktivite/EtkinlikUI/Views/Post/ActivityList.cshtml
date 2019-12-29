@@ -1,0 +1,124 @@
+﻿@model IEnumerable<Taktivite.Entity.Activity>
+
+@{
+    ViewBag.Title = "Etkinlik Listesi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="col-1 ">&nbsp;</div>
+<div class="col-10">
+    <link href="~/Content/Default.css" rel="stylesheet" />
+    <div class="col-6 ">
+
+
+        @foreach (var item in Model)
+        {
+
+            <div class="col-12 ">
+
+                <div class="popUp ">
+                    <div class="email col-12" onclick="this.classList.add('expand')">
+                        <div class="from col-12">
+                            <div class="from-contents col-12 ">
+                                <div class="col-2 avatar me"></div>
+                                <div class="col-9 name ">
+                                    <p>
+                                        @Html.DisplayFor(modelItem => item.User.UserName)
+
+                                    </p>
+                                </div>
+                                <div class="col-1 actor"><p> @Html.DisplayFor(modelItem => item.Participant.ParticipantName)</p></div>
+                            </div>
+                        </div>
+                        <div class="to col-12">
+
+                            <div class="to-contents">
+                                <div class="top ">
+                                    <div class="avatar-large me"></div>
+                                    <div class="name-large">   @Html.DisplayFor(modelItem => item.Title)</div>
+                                    <div class="x-touch" onclick="document.querySelector('.email').classList.remove('expand');event.stopPropagation();">
+                                        <div class="x">
+                                            <div class="line1"></div>
+                                            <div class="line2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bottom">
+
+                                    <div class="row">
+                                        <div class="col-12 postMap" id="map">
+
+                                        </div>
+                                        <div class="col-4 postName">
+                                            <p>@Html.DisplayFor(modelItem => item.User.UserName)</p>
+                                        </div>
+                                        <div class="col-4">
+
+                                        </div>
+
+                                        <div class="col-12 postExplanation">
+                                            <p>
+                                                @Html.DisplayFor(modelItem => item.Contents)
+                                        </div>
+                                        <div class="col-4  postState">
+                                            <p class="postTitle">Durum :&nbsp;</p><p>@Html.DisplayFor(modelItem => item.State.StateName)</p>
+                                        </div>
+                                        <div class="col-4  postActor">
+                                            <p class="postTitle">Katılımcı Sayısı :&nbsp; </p><p>@Html.DisplayFor(modelItem => item.Participant.ParticipantName)</p>
+                                        </div>
+                                        <div class="col-4  ">
+                                            &nbsp;
+                                        </div>
+                                        <div class="col-5 postJoin postButton">
+                                            <br /><br />
+                                            <a href="~/Post/ActivityListJoin/@item.Id" class="katilbtn">Katıl</a>
+                                        </div>
+                                        <div class="col-1">
+                                            &nbsp;
+                                        </div>
+                                        <div class="col-5 postcomplain postButton">
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @Html.TextBoxFor(modelItem => item.Latitude, new { id = "Latitude" })<br />
+            @Html.TextBoxFor(modelItem => item.Longitude, new { id = "Longitude" })
+            <script>
+                var map;
+                var latt = parseFloat(document.getElementById("Latitude").value.replace(",", "."));
+                var long = parseFloat(document.getElementById("Longitude").value.replace(",", "."));
+             
+                function initMap() {
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: { lat: latt, lng: long },
+                        zoom: 18
+                    });
+                    var marker = new google.maps.Marker({
+                        position: { lat: latt, lng: long },
+
+                    });
+                    marker.setMap(map);
+                }
+            </script>
+
+        }
+    </div>
+
+</div>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK3GoHQi6P1dSHQO_QqyRHtZ1SalS25r0&callback=initMap"
+        type="text/javascript"></script>
+<div class="col-1  ">&nbsp;</div>
+
+

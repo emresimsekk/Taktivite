@@ -1,0 +1,654 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    height: 100vh;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+[class*="col-"] {
+    float: left;
+}
+
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+.height {
+    height: 100%;
+}
+
+.red {
+    background-color: red;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.aqua {
+    background-color: aqua;
+}
+
+.brown {
+    background-color: brown;
+}
+
+.coral {
+    background-color: coral;
+}
+
+.darkgoldenrod {
+    background-color: darkgoldenrod;
+}
+
+.cornflowerblue {
+    background-color: cornflowerblue;
+}
+
+.cadetblue {
+    background-color: cadetblue;
+}
+
+.teal {
+    background-color: teal;
+}
+
+.tan {
+    background-color: tan;
+}
+
+.gold {
+    background-color: gold;
+}
+
+.container {
+}
+
+header {
+    height: 4vh;
+    background-color: #f0aa33;
+    display: table;
+}
+
+    header p {
+        display: table-cell;
+        vertical-align: middle;
+        padding-left: 50px;
+        font-size: 21px;
+    }
+
+nav {
+    background-color: #232f34;
+    height: 96vh;
+}
+
+.box {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+    .box:hover {
+        background-color: #4a6572;
+    }
+
+.imagesNearActivity {
+    background-image: url(../icon/nearActivity.png);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+    background-size: 26px;
+    margin-bottom: 6px;
+    padding-top: 3px;
+    height: 23px;
+}
+
+.imagesLocationActivity {
+    background-image: url(../icon/locationActivity.png);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+    background-size: 26px;
+    margin-bottom: 6px;
+    padding-top: 3px;
+    height: 23px;
+}
+
+.imagesCreateEvent {
+    background-image: url(../icon/communityAdd.png);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+    background-size: 26px;
+    margin-bottom: 6px;
+    padding-top: 3px;
+    height: 23px;
+}
+
+.imagesProfile {
+    background-image: url(../icon/profile.png);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+    background-size: 26px;
+    margin-bottom: 6px;
+    padding-top: 3px;
+    height: 23px;
+}
+
+.imagesComplaint {
+    background-image: url(../icon/complaint.png);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+    background-size: 26px;
+    margin-bottom: 6px;
+    padding-top: 3px;
+    height: 23px;
+}
+
+.imagesInfo {
+    background-image: url(../icon/info.png);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+    background-size: 26px;
+    margin-bottom: 6px;
+    padding-top: 3px;
+    height: 23px;
+}
+
+.imagesHelp {
+    background-image: url(../icon/help.png);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+    background-size: 26px;
+    margin-bottom: 6px;
+    padding-top: 3px;
+    height: 23px;
+}
+
+.link {
+    text-align: center;
+    display: table;
+}
+
+    .link a {
+        display: table-cell;
+        vertical-align: middle;
+        color: #b1b1b1;
+        text-decoration: none;
+        font-size: 9px;
+    }
+
+.navTop {
+}
+
+    .navTop a {
+        color: #b1b1b1;
+        text-decoration: none;
+        font-size: 9px;
+    }
+
+.navBottom {
+    width: 63px;
+    position: absolute;
+    bottom: 0;
+}
+
+    .navBottom a {
+        color: #b1b1b1;
+        text-decoration: none;
+        font-size: 9px;
+    }
+
+
+/*---------------------------Profile---------------------------*/
+.profile {
+    background-color: #344955;
+    height: 96vh;
+    position: relative;
+}
+
+
+.ImagesMainProfile {
+    text-align: center;
+    margin: 50px 0 15px 0;
+}
+
+    .ImagesMainProfile img {
+        border-radius: 50%;
+    }
+
+.profileName {
+    display: table;
+    text-align: center;
+    margin: 0 0 40px 0;
+    font-size: 15px;
+}
+
+    .profileName p {
+        display: table-cell;
+        vertical-align: middle;
+        color: white;
+    }
+
+.profileLink {
+}
+
+    .profileLink ul li {
+        margin: 10px 0 10px 0;
+        list-style-type: none;
+        padding: 15px 0 15px 30px;
+        font-size: 13px;
+    }
+
+        .profileLink ul li a {
+            text-decoration: none;
+            color: #e1e1e1;
+        }
+
+        .profileLink ul li:hover {
+            background-color: #232f34
+        }
+/*---------------------------Profile End---------------------------*/
+
+/*---------------------------Near Events---------------------------*/
+.nearEvents {
+    background-color: #344955;
+    height: 96vh;
+}
+
+.range {
+    margin: 50px 0 5px 25px; 
+    width:500px;
+
+}
+
+.rangeBox {
+    background-color: #232f34;
+    border-radius: 0 50% 50% 50%;
+    height: 50px;
+    width:50px;
+    transform: rotate(-135deg);
+    margin: 0px 0 35px 0;
+}
+
+#value {
+
+    color: white;
+    font-size: 13px;
+    transform: rotate(135deg);
+    position: relative;
+    top: 28px;
+    right: 0px;
+    left: -13px;
+}
+
+.slider {
+    width: 100%;
+    height: 5px;
+    -webkit-appearance: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: inset 0 3px 18px rgba(0,0,0,0.1);
+    outline: none;
+}
+#CategoryID {
+    width: 500px;
+    outline:none;
+    height:38px;
+    border-radius:5px;
+}
+#StateID {
+    width: 500px;
+    outline: none;
+    height: 38px;
+    border-radius: 5px;
+}
+#ParticipantID {
+    width: 500px;
+    outline: none;
+    height: 38px;
+    border-radius: 5px;
+}
+.Baslik {
+    margin-left: 60px;
+    margin-top: 45px;
+    margin-bottom: 25px;
+}
+#Latitude {
+    display: none;
+}
+#Longitude {
+    display: none;
+}
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background-color: #f0aa33;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+}
+
+        .slider::-webkit-slider-thumb:hover {
+            box-shadow: 0 0 0 2px #344955, 0 0 0 4px #f0aa33;
+        }
+
+    .slider:active::-webkit-slider-thumb {
+        box-shadow: 0 0 0 2px #344955, 0 0 0 4px #f0aa33;
+    }
+
+.nearRange {
+    margin: 50px 0 25px 0;
+}
+
+.select-box {
+    width: 100%;
+    border: 1px solid #777;
+    padding: .3rem .3rem;
+    border-radius: 3px;
+    color: #565656;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+/*---------------------------Near Events End---------------------------*/
+
+/*---------------------------Location Events---------------------------*/
+.locationEvents {
+    background-color: #344955;
+    height: 96vh;
+}
+
+.map {
+    position: relative;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 100px;
+    margin: 50px 0 25px 0;
+}
+
+.category {
+}
+
+    .category label {
+        color: #ebebeb;
+        float: left;
+        margin: 0 0 5px 0;
+        font-size: 12px;
+    }
+
+    .category::after {
+        content: "";
+        display: inline-block;
+        border-top: 7px solid #777;
+        border-right: 7px solid transparent;
+        border-left: 7px solid transparent;
+        position: absolute;
+        top: 2rem;
+        right: .4rem;
+    }
+
+
+.status {
+    margin: 25px 0 25px 0;
+}
+
+    .status label {
+        color: #ebebeb;
+        float: left;
+        margin: 0 0 5px 0;
+        font-size: 12px;
+    }
+
+    .status::after {
+        content: "";
+        display: inline-block;
+        border-top: 7px solid #777;
+        border-right: 7px solid transparent;
+        border-left: 7px solid transparent;
+        position: absolute;
+        top: 2rem;
+        right: .4rem;
+    }
+
+.lists {
+    text-align: center;
+}
+
+    .lists input {
+        padding: 10px 0 10px 0;
+        width: 100%;
+        outline: none;
+        background-color: #f0aa33;
+        color: #ffffff;
+        padding: 10px;
+        border: 1px;
+        margin: 30px 0 0 0;
+    }
+/*---------------------------Location Events End---------------------------*/
+.btn {
+    padding: 10px 0 10px 0;
+    width: 250px;
+    outline: none;
+    background-color: #f0aa33;
+    color: #ffffff;border:0;
+    margin-left:150px;
+    margin-top:50px;
+   
+}
+.yayinla {
+    padding: 10px 0 10px 0;
+    width: 250px;
+    outline: none;
+    background-color: #f0aa33;
+    color: #ffffff;
+    border: 0;
+  
+ 
+}
+.Basliketkinlik{
+    height:35px;
+    width:498px;
+    padding-left:15px
+}
+.icerik {
+    padding-left: 15px
+}
+.addEtkinlik {
+    margin-left: 60px;
+}
+.katilbtn {
+    outline: none;
+    text-decoration: none;
+    color: white;
+    background-color: #f0aa33;
+    padding: 7px 65px 7px 65px;
+    margin-left: 155px;
+}
+/*---------------------------Add Events---------------------------*/
+.addEvents {
+    background-color: #344955;
+    height: 96vh;
+}
+
+.addEventsLink {
+}
+
+.logo {
+    margin: 50px 0 120px 0;
+    text-align: center;
+    color: #f3f3f3;
+    font-size: 20px;
+}
+
+.addEventsLink ul li {
+    margin: 10px 0 10px 0;
+    list-style-type: none;
+    padding: 15px 0 15px 30px;
+    font-size: 13px;
+}
+
+    .addEventsLink ul li a {
+        text-decoration: none;
+        color: #e1e1e1;
+    }
+
+    .addEventsLink ul li:hover {
+        background-color: #232f34
+    }
+/*---------------------------Add Events End---------------------------*/
+
+/*---------------------------Support---------------------------*/
+.support {
+    background-color: #344955;
+    height: 96vh;
+}
+
+.supportLink {
+}
+
+.logo {
+    margin: 50px 0 120px 0;
+    text-align: center;
+    color: #f3f3f3;
+    font-size: 20px;
+}
+
+.supportLink ul li {
+    margin: 10px 0 10px 0;
+    list-style-type: none;
+    padding: 15px 0 15px 30px;
+    font-size: 13px;
+}
+
+    .supportLink ul li a {
+        text-decoration: none;
+        color: #e1e1e1;
+    }
+
+    .supportLink ul li:hover {
+        background-color: #232f34
+    }
+/*---------------------------Support End---------------------------*/
+
+
+/*---------------------------Information---------------------------*/
+.information {
+    background-color: #344955;
+    height: 96vh;
+}
+
+.informationLink {
+}
+
+    .informationLink ul li {
+        margin: 10px 0 10px 0;
+        list-style-type: none;
+        padding: 15px 0 15px 30px;
+        font-size: 13px;
+    }
+
+        .informationLink ul li a {
+            text-decoration: none;
+            color: #e1e1e1;
+        }
+
+        .informationLink ul li:hover {
+            background-color: #232f34
+        }
+/*---------------------------Information End---------------------------*/
+
+/*---------------------------Complaint---------------------------*/
+.complaint {
+    background-color: #344955;
+    height: 96vh;
+}
+
+.complaintLink {
+}
+
+    .complaintLink ul li {
+        margin: 10px 0 10px 0;
+        list-style-type: none;
+        padding: 15px 0 15px 30px;
+        font-size: 13px;
+    }
+
+        .complaintLink ul li a {
+            text-decoration: none;
+            color: #e1e1e1;
+        }
+
+        .complaintLink ul li:hover {
+            background-color: #232f34
+        }
+/*---------------------------Complaint End---------------------------*/

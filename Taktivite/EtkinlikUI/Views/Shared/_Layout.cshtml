@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -Taktivite Sosyal Platform</title>
+    <link href="~/Content/Main.css" rel="stylesheet" />
+    <script src="~/Scripts/Main.js"></script>
+    @*@Styles.Render("~/Content/css")*@
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="col-12">
+            <header class="col-12"><p>Logo</p></header>
+        </div>
+        <div class=" col-12 ">
+            <div class="col-2 ">
+                @*---------------------------Nav---------------------------*@
+                <nav class="col-3">
+
+                    <div class="col-12 navTop">
+                        <a href="~/Post/ListFilter" onclick="showMee('nearEvents');">
+                            <div class="col-12 box ">
+                                <div class="col-12"><span class=" col-12 imagesNearActivity ">&nbsp;</span></div>
+                                <div class="col-12 link"> Yakınımdaki Etkinlik</div>
+                            </div>
+                        </a>
+
+                        <a href="~/Post/Index" onclick="showMee('addEvents');">
+                            <div class="col-12 box ">
+                                <div class="col-12"><span class=" col-12 imagesCreateEvent ">&nbsp;</span></div>
+                                <div class="col-12 link  "> Etkinlik Ekle</div>
+                            </div>
+                        </a>
+                        <a href="~/Profile/Index" onclick="showMee('profile');">
+                            <div class="col-12 box ">
+                                <div class="col-12 "><span class=" col-12 imagesProfile ">&nbsp;</span></div>
+                                <div class="col-12 link  ">Profilim </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-12 navBottom">
+                        <a href="javascript:;" onclick="showMee('complaint');">
+                            <div class="col-12 box ">
+                                <div class="col-12"><span class=" col-12 imagesComplaint ">&nbsp;</span></div>
+                                <div class="col-12 link"> Şikayet Et</div>
+                            </div>
+                        </a>
+                        <a href="~/Support/Assistance" onclick="showMee('support');">
+                            <div class="col-12 box ">
+                                <div class="col-12"><span class=" col-12 imagesHelp ">&nbsp;</span></div>
+                                <div class="col-12 link">Destek</div>
+                            </div>
+                        </a>
+                        <a href="~/Support/Infomation" onclick="showMee('information');">
+                            <div class="col-12 box ">
+                                <div class="col-12"> <span class=" col-12 imagesInfo ">&nbsp;</span></div>
+                                <div class="col-12 link  ">Bilgilendirme</div>
+                            </div>
+                        </a>
+                    </div>
+
+                </nav>
+                @*---------------------------Nav End---------------------------*@
+
+                @*---------------------------Profile---------------------------*@
+                <div id="profile" class="profile col-9">
+
+                    <div class="col-1 ">&nbsp;</div>
+                    <div class="col-10">
+
+                        <div class=" col-12 ImagesMainProfile ">
+                            <br /><br /><br />
+                            <p style="font-size:25px;font-weight:600;color:white">LOGO</p>
+                            <br /><br /><br /><br /><br /><br /><br />
+                        </div>
+
+
+
+                    </div>
+                    <div class="col-1 ">&nbsp;</div>
+
+                    <div class="col-12 profileLink">
+                        <ul>
+                            <li>
+                                <a href="~/Profile/Index">Katıldığım Etkinlikler</a>
+                            </li>
+                            <li>
+                                <a href="~/Profile/PleaseActivity">Oluşturduğu Etkinlikler</a>
+                            </li>
+                            
+                            <li>
+                                <a href="~/Profile/MyProfile">Profilim</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+
+                </div>
+                @*---------------------------Profile End---------------------------*@
+
+
+
+
+
+
+
+            </div>
+
+            <div class="col-10">
+                @RenderBody()
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</body>
+</html>

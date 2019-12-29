@@ -1,0 +1,72 @@
+﻿@using Taktivite.Entity.ValueObject
+@model Taktivite.Entity.ValueObject.LoginViewModel
+@{
+    ViewBag.Title = "Giriş İşlemleri";
+    Layout = null;
+}
+
+    <html>
+    <head>
+
+        <meta name="viewport" content="width=device-width" />
+        <title>Giriş İşlemleri</title>
+        <link href="~/Content/Account.css" rel="stylesheet" />
+
+    </head>
+
+    <body>
+        @using (Html.BeginForm())
+        {
+
+            <div class="container">
+                <div class="box ">
+                    <div class="col-7 description " id="description">
+                        <br />   <br /> <br />   <br />
+                        <div class="col-12 logo">Logo</div>
+                        <br />
+                        <br /><br />  <br /><br />  <br /><br />
+                        <p style="line-height:25px;">Bir hesap oluşturarak daha hızlı arkadaş edinebilirsiniz, Anın tadını çıkartıp hayatla  ilgili güncel bilgiler edinebilir ve hiç görmediğiniz insanlarla tanışabilirsiniz görebilirsiniz.</p>
+                        <br /><br />
+
+                    </div>
+                    <div class="col-5 form">
+                        @*--------------------------Login Form--------------------------*@
+                        <form method="post" name="login" id="login" class="login">
+                            <br />   <br />   <br />
+                            <h3 class="col-12 ">Giriş Yap</h3>
+                            <br />   <br /> <br />   <br />
+                            <br />
+                            <div class="col-12 userName ">
+                                @*<input type="email" id="LoginUserMail" autofocus required pattern="[a-zA-Z0-9_-]{6,12}" onfocus="LoginUserMailFocus('LoginUserMail')" onfocusout="LoginUserMailFocusOut('LoginUserMail')" placeholder="Kullanıcı Adı veya e-posta" maxlength="30" />*@
+                                @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = "Kullanıcı Adı", type = "text", })
+
+                            </div>
+                            <div class="col-12 userPassword ">
+                                @Html.TextBoxFor(model => model.UserPassword, new { @class = "form-control", placeholder = "Şifre", type = "password", })
+
+                                @*<input type="password" id="LoginUserPassword" autofocus required title="Şifre 4 ve 12 karakter arası olmalı." pattern="[a-zA-Z0-9_-]{6,12}" onfocus="LoginPasswordFocus('LoginUserPassword')" onfocusout="LoginPasswordFocusOut('LoginUserPassword')" placeholder="Şifre" maxlength="12" />*@
+                            </div>
+                            <div class="col-12 loginButton ">
+                                <input type="submit" value="Giriş Yap" />
+                            </div>
+                            <div class="col-12 passwordForgot ">
+                                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-12 registerButton ">
+                                <a href="~/Users/Register">Bize Katıl</a>
+
+                            </div>
+
+                        </form>
+
+
+
+                    </div>
+                </div>
+            </div>
+        }
+    </body>
+
+
+    </html>
+

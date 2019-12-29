@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="etkinlikModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Activity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="StateID" Type="Int32" Nullable="false" />
+    <Property Name="ParticipantID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contents" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ActivityJoins" Relationship="Self.FK_ActivityJoin_Activity" FromRole="Activity" ToRole="ActivityJoin" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_dbo_Activity_dbo_Category_CategoryID" FromRole="Activity" ToRole="Category" />
+    <NavigationProperty Name="Participant" Relationship="Self.FK_dbo_Activity_dbo_Participant_ParticipantID" FromRole="Activity" ToRole="Participant" />
+    <NavigationProperty Name="State" Relationship="Self.FK_dbo_Activity_dbo_State_StateID" FromRole="Activity" ToRole="State" />
+    <NavigationProperty Name="User" Relationship="Self.FK_dbo_Activity_dbo_User_UserID" FromRole="Activity" ToRole="User" />
+  </EntityType>
+  <EntityType Name="ActivityJoin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActivityID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Activity" Relationship="Self.FK_ActivityJoin_Activity" FromRole="ActivityJoin" ToRole="Activity" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Activities" Relationship="Self.FK_dbo_Activity_dbo_Category_CategoryID" FromRole="Category" ToRole="Activity" />
+  </EntityType>
+  <EntityType Name="Participant">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ParticipantName" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Activities" Relationship="Self.FK_dbo_Activity_dbo_Participant_ParticipantID" FromRole="Participant" ToRole="Activity" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StateName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Activities" Relationship="Self.FK_dbo_Activity_dbo_State_StateID" FromRole="State" ToRole="Activity" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserImagesName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Activities" Relationship="Self.FK_dbo_Activity_dbo_User_UserID" FromRole="User" ToRole="Activity" />
+  </EntityType>
+  <Association Name="FK_ActivityJoin_Activity">
+    <End Role="Activity" Type="Self.Activity" Multiplicity="1" />
+    <End Role="ActivityJoin" Type="Self.ActivityJoin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Activity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActivityJoin">
+        <PropertyRef Name="ActivityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Activity_dbo_Category_CategoryID">
+    <End Role="Category" Type="Self.Category" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Activity">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Activity_dbo_Participant_ParticipantID">
+    <End Role="Participant" Type="Self.Participant" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Participant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Activity">
+        <PropertyRef Name="ParticipantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Activity_dbo_State_StateID">
+    <End Role="State" Type="Self.State" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Activity">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Activity_dbo_User_UserID">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Activity">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="etkinlikEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="Activities" EntityType="Self.Activity" />
+    <EntitySet Name="ActivityJoins" EntityType="Self.ActivityJoin" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Participants" EntityType="Self.Participant" />
+    <EntitySet Name="States" EntityType="Self.State" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_ActivityJoin_Activity" Association="Self.FK_ActivityJoin_Activity">
+      <End Role="Activity" EntitySet="Activities" />
+      <End Role="ActivityJoin" EntitySet="ActivityJoins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Activity_dbo_Category_CategoryID" Association="Self.FK_dbo_Activity_dbo_Category_CategoryID">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Activity" EntitySet="Activities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Activity_dbo_Participant_ParticipantID" Association="Self.FK_dbo_Activity_dbo_Participant_ParticipantID">
+      <End Role="Participant" EntitySet="Participants" />
+      <End Role="Activity" EntitySet="Activities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Activity_dbo_State_StateID" Association="Self.FK_dbo_Activity_dbo_State_StateID">
+      <End Role="State" EntitySet="States" />
+      <End Role="Activity" EntitySet="Activities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Activity_dbo_User_UserID" Association="Self.FK_dbo_Activity_dbo_User_UserID">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Activity" EntitySet="Activities" />
+    </AssociationSet>
+    <FunctionImport Name="ListGetir" ReturnType="Collection(etkinlikModel.ListGetir_Result)">
+      <Parameter Name="Latitude" Mode="In" Type="Decimal" />
+      <Parameter Name="Longitude" Mode="In" Type="Decimal" />
+      <Parameter Name="Range" Mode="In" Type="Decimal" />
+      <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(etkinlikModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(etkinlikModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="ListGetir_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="Int32" Name="StateID" Nullable="false" />
+    <Property Type="Int32" Name="ParticipantID" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Latitude" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Longitude" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Contents" Nullable="true" MaxLength="3000" />
+    <Property Type="Int32" Name="Id1" Nullable="false" />
+    <Property Type="Int32" Name="ActivityID" Nullable="false" />
+    <Property Type="Int32" Name="UserID1" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,95 @@
+﻿@using Taktivite.Entity.ValueObject
+@model Taktivite.Entity.ValueObject.EventListViewModel
+@{
+    ViewBag.Title = "Etkinlik Filtrele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <link href="~/Content/EventList.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+        function showVal(newVal) {
+            document.getElementById("value").innerHTML = newVal;
+
+        }
+    </script>
+    <title></title>
+</head>
+<body>
+    
+    <div class="modal" style="background-color:slategray">
+        <div class="modal-content">
+            @using (Html.BeginForm("ActivityList","Post"))
+            {
+                
+
+
+                <div class="col-12 range  " >
+
+                    <div class=" col-5 ">&nbsp;</div>
+                    <div class=" col-2 rangeBox "><div id="value"></div></div>
+                    <div class=" col-5 ">&nbsp;</div>
+
+                    <div class="nearRange">
+                        @Html.TextBoxFor(model => model.RangeID, new { @class = "slider", type = "range", id = "slider", @oninput = "showVal(this.value)", @Value = "10" })
+
+                        
+                    </div>
+                    <br />
+                    @Html.DropDownListFor(model => model.CategoryID, ViewData["categories"] as SelectList, "Seçiniz", "Value" )<br />
+                    <input type="text" id="Latitude" name="Latitude" />
+                    <br />
+                    <input type="text" id="Longitude" name="Longitude" />
+                </div>
+               
+                <input type="submit" class="btn" value="Listele" />
+
+            }
+
+        </div>
+
+
+    </div>
+</body>
+</html>
+
+
+
+<script type="text/javascript">
+
+
+    var modal = document.querySelector(".modal");
+    var trigger = document.querySelector(".trigger");
+    var closeButton = document.querySelector(".close-button");
+
+    window.onload = function () {
+
+        document.getElementById("value").innerHTML = 10;
+        navigator.geolocation.getCurrentPosition(callback);
+        toggleModal();
+
+    };
+
+
+    function toggleModal() {
+        modal.classList.toggle("show-modal");
+    }
+
+    function windowOnClick(event) {
+        if (event.target === modal) {
+            toggleModal();
+        }
+    }
+
+    trigger.addEventListener("click", toggleModal);
+
+
+
+    function callback(position) {
+        document.getElementById('Latitude').value = position.coords.latitude;
+        document.getElementById('Longitude').value = position.coords.longitude;
+    }
+
+</script>
